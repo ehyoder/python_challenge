@@ -11,8 +11,9 @@ election1_csv = os.path.join("election_data_1.csv")
 output_file = "new_election_data.txt" 
 
 # Lists and dictionaries to store data 
-Total_votes = []
+
 Candidates = []
+# Candidate votes is a dictionary containing the 
 Candidate_votes = {}
 Percentage_won = []
 Total_votes = []
@@ -36,25 +37,19 @@ with open(election1_csv, 'r') as csvfile:
         # Track the votes for each candidate
         Candidate_votes[Candidate_name] = Candidate_votes[Candidate_name] + 1
 
-        #print(Candidates)
+print("Election Results")
+print("--------------------------")
+print(f"Total Votes: {Total_votes}\n"
+      f"--------------------------")
     
-        # Skip header row    
-        #next(csvreader)
-  
-        # Store the election results as a variable and print the winning candidate (to terminal)
-    election_results1 = (
-        f"\nElection 1 Results\n"
-        f"--------------------\n"
-        f"Total Votes: {Total_votes}\n"
-        f"--------------------\n"
-        f"{Candidate_name}: ({Candidate_votes})\n"
-        #f"{Candidate}: {Percentage_won} ({Candidate_votes})\n"
-        #f"{Candidate}: {Percentage_won} ({Candidate_votes})\n"
-        #f"{Candidate}: {Percentage_won} ({Candidate_votes})\n"
-        #f"Winner: {Winning_Candidate})"
-        f"--------------------\n")
-    print(election_results1)
-
+# Find the percentage of the vote that each candidate won, print to terminal
+for candidate in Candidate_votes:
+    Votes = Candidate_votes.get(candidate)
+    Vote_percentage = float(Votes) / float(Total_votes) * 100
+    print(f"{candidate}: {Vote_percentage: .3f}% ({Votes})\n")
+    
+# Find the winner 
+ 
 # Export the election results to the text file
-sys.stdout = open(output_file, 'w')
-print(election_results1)
+#sys.stdout = open(output_file, 'w')
+#print(election_results1)
