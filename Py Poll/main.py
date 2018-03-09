@@ -35,23 +35,27 @@ with open(election1_csv, 'r') as csvfile:
         # Track the votes for each candidate
         Candidate_votes[Candidate_name] = Candidate_votes[Candidate_name] + 1
 
-Election_results1
-print("Election Results")
-print("--------------------------")
-print(f"Total Votes: {Total_votes}\n"
-      f"--------------------------")
+Election_results1 = (
+    f"Election Results\n" 
+    f"--------------------------\n"
+    f"Total Votes: {Total_votes}\n"
+    f"--------------------------")
+print(Election_results1)
     
 # Find the percentage of the vote that each candidate won, print to terminal
 for candidate in Candidate_votes:
     Votes = Candidate_votes.get(candidate)
     Vote_percentage = float(Votes) / float(Total_votes) * 100
-    print(f"{candidate}: {Vote_percentage: .1f}% ({Votes})\n")
+    Vote_data1 = (f"{candidate}: {Vote_percentage: .1f}% ({Votes})\n")
+    print(Vote_data1)
     
 # Find the winner and output to terminal
 winner = max(Candidate_votes, key=Candidate_votes.get)
-print("--------------------------")
-print(f"Winner: {winner}\n"
+Winning_candidate1 = (
+      f"--------------------------\n"
+      f"Winner: {winner}\n"
       f"--------------------------\n")
+print(Winning_candidate1)
 
 ################################################# SECOND FILE #####################################################
 
@@ -73,23 +77,28 @@ with open(election2_csv, 'r') as csvfile:
         # Track the votes for each candidate
         Candidate_votes[Candidate_name] = Candidate_votes[Candidate_name] + 1
 
-print("Election Results 2")
-print("--------------------------")
-print(f"Total Votes: {Total_votes}\n"
-      f"--------------------------")
+Election_results2 = (
+    f"Election Results2\n" 
+    f"--------------------------\n"
+    f"Total Votes: {Total_votes}\n"
+    f"--------------------------")
+print(Election_results2)
     
 # Find the percentage of the vote that each candidate won, print to terminal
 for candidate in Candidate_votes:
     Votes = Candidate_votes.get(candidate)
     Vote_percentage = float(Votes) / float(Total_votes) * 100
-    print(f"{candidate}: {Vote_percentage: .1f}% ({Votes})\n")
+    Vote_data2 = (f"{candidate}: {Vote_percentage: .1f}% ({Votes})\n")
+    print(Vote_data2)
     
 # Find the winner and output to terminal
 winner = max(Candidate_votes, key=Candidate_votes.get)
-print("--------------------------")
-print(f"Winner: {winner}\n"
-      f"--------------------------")
+Winning_candidate2 = (
+      f"--------------------------\n"
+      f"Winner: {winner}\n"
+      f"--------------------------\n")
+print(Winning_candidate2)
 
 # Export the election results to the text file
-sys.stdout = open(output_file, 'w')
-print(election_results1)
+sys.stdout = open("new_election_data.txt", 'w')
+print(f" {Election_results1}\n {Candidate_votes}\n {Winning_candidate1}\n {Election_results2}\n {Vote_data2}\n {Winning_candidate2}")
