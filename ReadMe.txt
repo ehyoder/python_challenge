@@ -1,0 +1,1 @@
+This is a ReadMe file to accompany Beth Yoder's Python Challenge homework for UNCC's Data Analytics course. 
